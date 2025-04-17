@@ -1,0 +1,28 @@
+basic file setup
+----------------
+cd ~/ros2_ws/src
+ros2 pkg create --build-type ament_cmake my_box_bot_description --dependencies urdf xacro
+cd ~/ros2_ws/src/my_box_bot_description
+mkdir launch rviz urdf
+touch urdf/box_bot_geometric.urdf
+touch launch/urdf_visualize_geometric.launch.py
+touch urdf/box_bot_geometric_meshes.urdf
+touch launch/urdf_visualize_meshes.launch.py
+
+clone meshes from git repo
+--------------------------
+cd ~/ros2_ws/src/my_box_bot_description
+git clone https://bitbucket.org/theconstructcore/course_urdf_ros2_material.git
+cp -r course_urdf_ros2_material/meshes ./
+rm -rf course_urdf_ros2_material
+
+clone rviz config file
+----------------------
+cd ~/ros2_ws/src/
+cp urdfbot_description/rviz/urdf_vis.rviz my_box_bot_description/rviz/
+
+run rqt_tf_tree to verify
+-------------------------
+cd ~/ros2_ws
+source install/setup.bash
+ros2 run rqt_tf_tree rqt_tf_tree
