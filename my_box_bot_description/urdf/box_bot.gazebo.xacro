@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:arg name="robot_name" default="box_bot" />
     
 <xacro:macro name="gazebo_elements">  
     
@@ -51,5 +53,5 @@
     <material>Gazebo/Red</material>
   </gazebo>
 
-    </xacro:macro>     
+  </xacro:macro>     
 </robot>   
